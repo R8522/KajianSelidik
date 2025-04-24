@@ -6,10 +6,8 @@ import matplotlib.pyplot as plt
 def run():
 # --- Page Config ---
     st.title(page_title="Analisis Perpustakaan", layout="wide")
-    st.markdown("Data dari komuniti Desa Sempeneh tentang pandangan terhadap perpustakaan.")
-
-# --- Tajuk Besar ---
-st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Bukit Merah</h1>", unsafe_allow_html=True)
+    # --- Tajuk Besar ---
+    st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Bukit Merah</h1>", unsafe_allow_html=True)
 try:
 # --- Load CSV ---
 data = pd.read_csv('BukitMerah.csv')
