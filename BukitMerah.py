@@ -98,12 +98,11 @@ st.write(data['Keperluan_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Kekurangan Pengunjung"):
     plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Penutupan_perpustakaan'].value_counts())
+    st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
+    st.write(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon kepada penutupan")
+    st.write(data['Penutupan_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Operasi Perpustakaan"):
     plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
