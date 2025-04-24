@@ -80,14 +80,14 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data['Lokasi_strategik'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
-        plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Keperluan Perpustakaan')
+        plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
         st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
-        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Kekurangan Pengunjung')
+        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Keperluan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden daripada soalan keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
@@ -95,7 +95,7 @@ if location == "Bukit Merah":
 
     
     if st.checkbox("📍 Operasi perpustakaan"):
-        plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_line('Operasi_perpustaaan', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
@@ -183,14 +183,14 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data['Lokasi_strategik'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
-        plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Keperluan Perpustakaan')
+        plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
         st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
-        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Kekurangan Pengunjung')
+        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Keperluan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden daripada soalan keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
@@ -198,7 +198,7 @@ if location == "Desa Sempeneh":
 
     
     if st.checkbox("📍 Operasi perpustakaan"):
-        plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
