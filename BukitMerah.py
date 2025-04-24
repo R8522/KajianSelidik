@@ -95,7 +95,7 @@ if location == "Bukit Merah":
 
     
     if st.checkbox("📍 Operasi perpustakaan"):
-        plot_grouped_line('Operasi_perpustaaan', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
