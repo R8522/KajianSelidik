@@ -71,48 +71,72 @@ def plot_grouped_bar(column, title):
 if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
     st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon kepada penutupan")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Penutupan_perpustakaan'].value_counts())
 
 
 if st.checkbox("📍 Lokasi Strategik"):
     plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
     st.subheader("Bilangan responden ikut umur dan Lokasi")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Lokasi_strategik'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon kepada penutupan")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Lokasi_strategik'].value_counts())
 
 if st.checkbox("📍 Keperluan Perpustakaan"):
     plot_grouped_line('Keperluan_perpustakaan', 'Umur vs Keperluan Perpustakaan')
     st.subheader("Bilangan responden ikut umur dan keperluan perpustakaan")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon keperluan perpustakaan")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Keperluan_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Kekurangan Pengunjung"):
     plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
     st.subheader("Bilangan responden ikut umur dan  kekurangan pengunjung")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon kekurangan pengunjung")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Penutupan_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Operasi Perpustakaan"):
     plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
     st.subheader("Bilangan responden ikut umur dan penoperasian")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Operasi_perpustakaan'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon pengoperasian")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Operasi_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Histogram Jarak Lokasi"):
     plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak Lokasi')
     st.subheader("Bilangan responden ikut umur dan jarak lokasi")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data.groupby('Umur')['Jarak_lokasi'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon jarak lokasi")
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
     st.write(data['Jarak_lokasi'].value_counts())
