@@ -1,21 +1,15 @@
 import streamlit as st
 
-# --- Page Config ---
-st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
-st.title("📚 Sistem Analisis Perpustakaan Desa/Komuniti")
+st.set_page_config(page_title="Kajian Perpustakaan", layout="wide")
 
-# Sidebar Navigation
-st.sidebar.header("📂 Pilih Lokasi")
-page = st.sidebar.selectbox(
-    "Lokasi Komuniti:",
-    ["Desa Sempeneh", "Bukit Merah"]
-)
+# --- Navigation ---
+st.sidebar.title("📂 Pilih Kawasan")
+page = st.sidebar.selectbox("Navigasi", ["Bukit Merah", "Desa Sempeneh"])
 
-# Routing
-if page == "Desa Sempeneh":
-    import DesaSempeneh
-    DesaSempeneh.run()
+# --- Bukit Merah Page ---
+if page == "Bukit Merah":
+    st.title("📚 Analisis Penutupan Perpustakaan Bukit Merah")
 
-elif page == "Bukit Merah":
-    import BukitMerah
-    BukitMerah.run()
+# --- Desa Sempeneh Page ---
+elif page == "Desa Sempeneh":
+    st.title("📖 Analisis Perpustakaan Desa Sempeneh")
