@@ -25,16 +25,21 @@ st.header("📈 Visualisasi Data")
 
 def plot_grouped_line(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(6, 4))  # <<< smaller size
+    fig, ax = plt.subplots(figsize=(6, 4))  # <<< saiz kecil
+
     for col in grouped.columns:
-        ax.plot(grouped.index, grouped[col], marker='o', label=col)
-    ax.set_xlabel('Kumpulan Umur')
-    ax.set_ylabel('Bilangan Responden')
-    ax.set_title(title)
-    ax.legend(title=column)
-    ax.grid(True, linestyle='--', alpha=0.6)
-    plt.xticks(rotation=45)
+        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
+
+    ax.set_xlabel('Kumpulan Umur', fontsize=5)
+    ax.set_ylabel('Bilangan Responden', fontsize=5)
+    ax.set_title(title, fontsize=5)
+    ax.legend(title=column, fontsize=4, title_fontsize=9, loc='upper left')  # <<< kecilkan legend
+    ax.grid(True, linestyle='--', alpha=0.5)
+    plt.xticks(rotation=45, fontsize=5)
+    plt.yticks(fontsize=5)
+    plt.tight_layout()
     st.pyplot(fig)
+
 
 def plot_grouped_bar(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
@@ -49,6 +54,7 @@ def plot_grouped_bar(column, title):
     st.pyplot(fig)
 
 # --- User Control ---
+if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
 
 if st.checkbox("📍 Lokasi Strategik"):
