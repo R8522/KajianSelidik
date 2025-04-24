@@ -70,54 +70,49 @@ def plot_grouped_bar(column, title):
 # --- User Controls ---
 if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Penutupan_perpustakaan'].value_counts())
-
-
-if st.checkbox("📍 Lokasi Strategik"):
-    plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Lokasi_strategik'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Lokasi_strategik'].value_counts())
-
-if st.checkbox("📍 Keperluan Perpustakaan"):
-    plot_grouped_line('Keperluan_perpustakaan', 'Umur vs Keperluan Perpustakaan')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Keperluan_perpustakaan'].value_counts())
-
-if st.checkbox("📍 Kekurangan Pengunjung"):
-    plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
     st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-    st.write(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts())
+    st.write(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts())
     
     st.subheader("Jumlah keseluruhan respon kepada penutupan")
     st.write(data['Penutupan_perpustakaan'].value_counts())
 
+
+if st.checkbox("📍 Lokasi Strategik"):
+    plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
+    st.subheader("Bilangan responden ikut umur dan Lokasi")
+    st.write(data.groupby('Umur')['Lokasi_strategik'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon kepada penutupan")
+    st.write(data['Lokasi_strategik'].value_counts())
+
+if st.checkbox("📍 Keperluan Perpustakaan"):
+    plot_grouped_line('Keperluan_perpustakaan', 'Umur vs Keperluan Perpustakaan')
+    st.subheader("Bilangan responden ikut umur dan keperluan perpustakaan")
+    st.write(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon keperluan perpustakaan")
+    st.write(data['Keperluan_perpustakaan'].value_counts())
+
+if st.checkbox("📍 Kekurangan Pengunjung"):
+    plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
+    st.subheader("Bilangan responden ikut umur dan  kekurangan pengunjung")
+    st.write(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon kekurangan pengunjung")
+    st.write(data['Penutupan_perpustakaan'].value_counts())
+
 if st.checkbox("📍 Operasi Perpustakaan"):
     plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Operasi_perpustakaan'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Operasi_perpustakaan'].value_counts())
+    st.subheader("Bilangan responden ikut umur dan penoperasian")
+    st.write(data.groupby('Umur')['Operasi_perpustakaan'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon pengoperasian")
+    st.write(data['Operasi_perpustakaan'].value_counts())
 
 if st.checkbox("📍 Histogram Jarak Lokasi"):
     plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak Lokasi')
-
-st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
-st.write(data.groupby('Umur')['Jarak_lokasi'].value_counts())
-
-st.subheader("Jumlah keseluruhan respon kepada penutupan")
-st.write(data['Jarak_lokasi'].value_counts())
+    st.subheader("Bilangan responden ikut umur dan jarak lokasi")
+    st.write(data.groupby('Umur')['Jarak_lokasi'].value_counts())
+    
+    st.subheader("Jumlah keseluruhan respon jarak lokasi")
+    st.write(data['Jarak_lokasi'].value_counts())
