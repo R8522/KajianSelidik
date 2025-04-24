@@ -38,7 +38,7 @@ def plot_grouped_line(column, title):
 
 def plot_grouped_bar(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(8, 6))
     grouped.plot(kind='bar', ax=ax, width=0.8)
     ax.set_xlabel('Kumpulan Umur')
     ax.set_ylabel('Bilangan Responden')
