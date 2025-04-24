@@ -213,7 +213,7 @@ if location == "Kuala Dipang":
     st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Desa Sempeneh</h1>", unsafe_allow_html=True)
 
     # --- Load CSV & Drop Nulls ---
-    data = pd.read_csv('Desa sempeneh.csv')
+    data = pd.read_csv('KualaDipang.csv')
     data.dropna(inplace=True)  # Hapus baris dengan nilai kosong
 
     # --- Ringkasan Data ---
