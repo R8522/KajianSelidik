@@ -289,18 +289,18 @@ if location == "Kuala Dipang":
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
-        plot_grouped_line('Perlu_ada', 'Bilangan Responden vs Keperluan Perpustakaan')
+        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Keperluan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden daripada soalan keperluan perpustakaan</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data.groupby('Umur')['Perlu_ada'].value_counts().unstack(fill_value=0)))
+        center_content(lambda: st.dataframe(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data['Perlu_ada'].value_counts().to_frame(name='Jumlah')))
+        center_content(lambda: st.dataframe(data['Keperluan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Operasi perpustakaan"):
-        plot_grouped_line('Operasi', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi'].value_counts().unstack(fill_value=0)))
+        center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data['Operasi'].value_counts().to_frame(name='Jumlah')))
+        center_content(lambda: st.dataframe(data['Operasi_perpustakaan'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Jarak Lokasi"):
         plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak lokasi')
