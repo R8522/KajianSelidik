@@ -25,16 +25,21 @@ st.header("📈 Visualisasi Data")
 
 def plot_grouped_line(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(5, 3))  # <<< saiz kecil
+
     for col in grouped.columns:
-        ax.plot(grouped.index, grouped[col], marker='o', label=col)
-    ax.set_xlabel('Kumpulan Umur')
-    ax.set_ylabel('Bilangan Responden')
-    ax.set_title(title)
-    ax.legend(title=column)
-    ax.grid(True, linestyle='--', alpha=0.6)
-    plt.xticks(rotation=45)
+        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
+
+    ax.set_xlabel('Kumpulan Umur', fontsize=10)
+    ax.set_ylabel('Bilangan Responden', fontsize=10)
+    ax.set_title(title, fontsize=12)
+    ax.legend(title=column, fontsize=8, title_fontsize=9, loc='upper left')  # <<< kecilkan legend
+    ax.grid(True, linestyle='--', alpha=0.5)
+    plt.xticks(rotation=45, fontsize=9)
+    plt.yticks(fontsize=9)
+    plt.tight_layout()
     st.pyplot(fig)
+
 
 def plot_grouped_bar(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
