@@ -66,11 +66,18 @@ if location == "Bukit Merah":
 
     # --- Controls ---
     if st.checkbox("📍 Penutupan Perpustakaan"):
-        plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
+        plot_grouped_line('Penutupan_perpustakaan', 'Umur vs Penutupan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan jawapan penutupan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada penutupan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Penutupan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
 
-    # Add similar sections for other features
+    if st.checkbox("📍 Lokasi Strategik"):
+        plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
+        st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan lokasi</div>", unsafe_allow_html=True)
+        center_content(lambda: st.dataframe(data.groupby('Umur')['Lokasi_strategik'].value_counts().unstack(fill_value=0)))
+        st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada lokasi</div>", unsafe_allow_html=True)
+        center_content(lambda: st.dataframe(data['Lokasi_strategik'].value_counts().to_frame(name='Jumlah')))
+
+
 
