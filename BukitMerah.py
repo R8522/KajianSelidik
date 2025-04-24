@@ -210,17 +210,18 @@ if location == "Desa Sempeneh":
 
 if location == "Kuala Dipang":
     # --- Tajuk Besar ---
-    st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Desa Kuala Dipang</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Desa Sempeneh</h1>", unsafe_allow_html=True)
 
-    # --- Load CSV ---
-    data = pd.read_csv('KualaDipang.csv')
+    # --- Load CSV & Drop Nulls ---
+    data = pd.read_csv('Desa sempeneh.csv')
+    data.dropna(inplace=True)  # Hapus baris dengan nilai kosong
 
     # --- Ringkasan Data ---
     st.markdown("### 📥 Data Asal")
-    st.write("Jumlah responden:", data.shape[0])
+    st.write("Jumlah responden selepas buang nilai kosong:", data.shape[0])
     st.dataframe(data)
 
-    st.markdown("### 📌 Nilai Kosong")
+    st.markdown("### 📌 Nilai Kosong (Selepas Buang)")
     st.write(data.isnull().sum())
 
     st.markdown("### 📊 Statistik Ringkas")
@@ -267,7 +268,7 @@ if location == "Kuala Dipang":
 
     # --- Controls ---
     if st.checkbox("📍 Penutupan Perpustakaan"):
-        plot_grouped_line('Penutupan_perpustakaan', 'Umur vs Penutupan Perpustakaan')
+        plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan jawapan penutupan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada penutupan</div>", unsafe_allow_html=True)
@@ -282,24 +283,24 @@ if location == "Kuala Dipang":
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
         plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
-        st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan Kekurangan pengunjung</div>", unsafe_allow_html=True)
+        st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
-        plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Keperluan Perpustakaan')
+        plot_grouped_line('Perlu_ada', 'Bilangan Responden vs Keperluan Perpustakaan')
         st.markdown("### <div style='text-align: center;'>Bilangan responden daripada soalan keperluan perpustakaan</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts().unstack(fill_value=0)))
+        center_content(lambda: st.dataframe(data.groupby('Umur')['Perlu_ada'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data['Keperluan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
-   
+        center_content(lambda: st.dataframe(data['Perlu_ada'].value_counts().to_frame(name='Jumlah')))
+    
     if st.checkbox("📍 Operasi perpustakaan"):
-        plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_line('Operasi', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
+        center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
-        center_content(lambda: st.dataframe(data['Operasi_perpustakaan'].value_counts().to_frame(name='Jumlah')))
+        center_content(lambda: st.dataframe(data['Operasi'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Jarak Lokasi"):
         plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak lokasi')
