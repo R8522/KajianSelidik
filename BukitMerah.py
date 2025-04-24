@@ -2,100 +2,66 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load data
-st.title("📊 Analisis Penutupan Perpustakaan Bukit Merah")
-data = pd.read_csv("BukitMerah.csv")
+# --- Title ---
+st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
+st.title("📚 Analisis Penutupan Perpustakaan Bukit Merah")
 
-st.subheader("🔍 Statistik Ringkas")
-st.write(data.describe())
-st.write("Jumlah nilai kosong setiap kolum:")
+# --- Load CSV ---
+data = pd.read_csv('BukitMerah.csv')
+
+# --- Ringkasan ---
+st.subheader("📥 Data Asal")
+st.write("Jumlah responden:", data.shape[0])
+st.dataframe(data)
+
+st.subheader("📌 Nilai Kosong")
 st.write(data.isnull().sum())
 
-# ========================
-# 1. Penutupan Perpustakaan
-# ========================
-st.subheader("📌 Respon vs Penutupan Perpustakaan")
-grouped = data.groupby(['Umur', 'Penutupan_perpustakaan']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-for col in grouped.columns:
-    ax.plot(grouped.index, grouped[col], marker='o', label=col)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Respon vs Penutupan Perpustakaan")
-ax.legend(title="Penutupan_perpustakaan")
-ax.grid(True, linestyle='--', alpha=0.6)
-st.pyplot(fig)
+st.subheader("📊 Statistik Ringkas")
+st.write(data.describe())
 
-# ========================
-# 2. Lokasi Strategik
-# ========================
-st.subheader("📌 Umur vs Lokasi Strategik")
-grouped = data.groupby(['Umur', 'Lokasi_strategik']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-for col in grouped.columns:
-    ax.plot(grouped.index, grouped[col], marker='o', label=col)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Umur vs Lokasi Strategik")
-ax.legend(title="Lokasi Strategik")
-ax.grid(True, linestyle='--', alpha=0.6)
-st.pyplot(fig)
+# --- Visualization ---
+st.header("📈 Visualisasi Data")
 
-# ========================
-# 3. Keperluan Perpustakaan
-# ========================
-st.subheader("📌 Umur vs Keperluan Perpustakaan")
-grouped = data.groupby(['Umur', 'Keperluan_perpustakaan']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-for col in grouped.columns:
-    ax.plot(grouped.index, grouped[col], marker='o', label=col)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Umur vs Keperluan Perpustakaan")
-ax.legend(title="Keperluan Perpustakaan")
-ax.grid(True, linestyle='--', alpha=0.6)
-st.pyplot(fig)
+def plot_grouped_line(column, title):
+    grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
+    fig, ax = plt.subplots(figsize=(6, 4))  # <<< smaller size
+    for col in grouped.columns:
+        ax.plot(grouped.index, grouped[col], marker='o', label=col)
+    ax.set_xlabel('Kumpulan Umur')
+    ax.set_ylabel('Bilangan Responden')
+    ax.set_title(title)
+    ax.legend(title=column)
+    ax.grid(True, linestyle='--', alpha=0.6)
+    plt.xticks(rotation=45)
+    st.pyplot(fig)
 
-# ========================
-# 4. Kekurangan Pengunjung
-# ========================
-st.subheader("📌 Umur vs Kekurangan Pengunjung")
-grouped = data.groupby(['Umur', 'Kekurangan_pengunjung']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-for col in grouped.columns:
-    ax.plot(grouped.index, grouped[col], marker='o', label=col)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Umur vs Kekurangan Pengunjung")
-ax.legend(title="Kekurangan Pengunjung")
-ax.grid(True, linestyle='--', alpha=0.6)
-st.pyplot(fig)
+def plot_grouped_bar(column, title):
+    grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
+    fig, ax = plt.subplots(figsize=(7, 4))  # <<< smaller size
+    grouped.plot(kind='bar', ax=ax, width=0.8)
+    ax.set_xlabel('Kumpulan Umur')
+    ax.set_ylabel('Bilangan Responden')
+    ax.set_title(title)
+    ax.legend(title=column)
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.xticks(rotation=45, ha='right')
+    st.pyplot(fig)
 
-# ========================
-# 5. Operasi Perpustakaan
-# ========================
-st.subheader("📌 Umur vs Pengoperasian Perpustakaan")
-grouped = data.groupby(['Umur', 'Operasi_perpustakaan']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-for col in grouped.columns:
-    ax.plot(grouped.index, grouped[col], marker='o', label=col)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Umur vs Pengoperasian Perpustakaan")
-ax.legend(title="Operasi Perpustakaan")
-ax.grid(True, linestyle='--', alpha=0.6)
-st.pyplot(fig)
+# --- User Control ---
+    plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
 
-# ========================
-# 6. Histogram: Jarak Lokasi
-# ========================
-st.subheader("📌 Histogram: Bilangan Responden vs Jarak Lokasi")
-grouped = data.groupby(['Umur', 'Jarak_lokasi']).size().unstack(fill_value=0)
-fig, ax = plt.subplots(figsize=(6, 4))
-grouped.plot(kind='bar', ax=ax, width=0.8)
-ax.set_xlabel("Kumpulan Umur")
-ax.set_ylabel("Bilangan Responden")
-ax.set_title("Histogram: Bilangan Responden vs Jarak Lokasi")
-ax.legend(title="Jarak Lokasi")
-ax.grid(axis='y', linestyle='--', alpha=0.6)
-st.pyplot(fig)
+if st.checkbox("📍 Lokasi Strategik"):
+    plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
+
+if st.checkbox("📍 Keperluan Perpustakaan"):
+    plot_grouped_line('Keperluan_perpustakaan', 'Umur vs Keperluan Perpustakaan')
+
+if st.checkbox("📍 Kekurangan Pengunjung"):
+    plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
+
+if st.checkbox("📍 Operasi Perpustakaan"):
+    plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
+
+if st.checkbox("📍 Histogram Jarak Lokasi"):
+    plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak Lokasi')
