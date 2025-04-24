@@ -121,6 +121,8 @@ if location == "Desa Sempeneh":
     st.write("Jumlah responden:", data.shape[0])
     st.dataframe(data)
 
+     data.dropna(inplace=True)
+    
     st.markdown("### 📌 Nilai Kosong")
     st.write(data.isnull().sum())
 
