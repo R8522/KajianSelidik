@@ -81,9 +81,9 @@ if location == "Bukit Merah":
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
         plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
-        st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan keperluan perpustakaan</div>", unsafe_allow_html=True)
+        st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan Kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
-        st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada keperluan perpustakaan</div>", unsafe_allow_html=True)
+        st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
