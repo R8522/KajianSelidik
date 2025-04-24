@@ -32,7 +32,7 @@ def plot_grouped_line(column, title):
     ax.set_ylabel('Bilangan Responden')
     ax.set_title(title)
     ax.legend(title=column)
-    ax.grid(True, linestyle='--', alpha=0.4)
+    ax.grid(True, linestyle='--', alpha=0.10)
     plt.xticks(rotation=45)
     st.pyplot(fig)
 
@@ -44,7 +44,7 @@ def plot_grouped_bar(column, title):
     ax.set_ylabel('Bilangan Responden')
     ax.set_title(title)
     ax.legend(title=column)
-    ax.grid(axis='y', linestyle='--', alpha=0.4)
+    ax.grid(axis='y', linestyle='--', alpha=0.10)
     plt.xticks(rotation=45, ha='right')
     st.pyplot(fig)
 
