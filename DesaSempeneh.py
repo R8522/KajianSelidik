@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
 
-# --- Sidebar Navigation ---
-location = st.sidebar.selectbox("Pilih Lokasi", ["Bukit Merah", "Desa Sempeneh"])
-
 if location == "Desa Sempeneh":
     # --- Tajuk Besar ---
     st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Desa Sempeneh</h1>", unsafe_allow_html=True)
