@@ -41,13 +41,12 @@ def plot_grouped_line(column, title):
     plt.xticks(rotation=45, fontsize=9)
     plt.yticks(fontsize=9)
     plt.tight_layout()
-    st.pyplot(fig)
+   
 
     # Center grafik
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.pyplot(fig)
-        plt.close(fig)
 
 # --- Function: Bar Chart ---
 def plot_grouped_bar(column, title):
