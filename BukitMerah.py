@@ -6,12 +6,9 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
 st.title("📚 Analisis Penutupan Perpustakaan Bukit Merah")
 
-# --- Upload Data ---
-st.sidebar.header("📁 Muat Naik Fail CSV")
-uploaded_file = st.sidebar.file_uploader("Pilih fail CSV", type="csv")
+# --- load Data ---
 
-if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
+    data = pd.read_csv('Bukit Merah.csv')
 
     # --- Ringkasan ---
     st.subheader("📥 Data Asal")
