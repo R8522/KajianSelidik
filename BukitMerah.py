@@ -70,15 +70,24 @@ def plot_grouped_bar(column, title):
 # --- User Controls ---
 if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
+    
     st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-    st.write(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts())
-    
+        st.dataframe(
+            data.groupby('Umur')['Penutupan_perpustakaan']
+                .value_counts()
+                .unstack(fill_value=0)
+        )
+
     st.subheader("Jumlah keseluruhan respon kepada penutupan")
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-    st.write(data['Penutupan_perpustakaan'].value_counts())
+        st.dataframe(
+            data['Penutupan_perpustakaan']
+                .value_counts()
+                .to_frame(name='Jumlah')
+        )
 
 
 if st.checkbox("📍 Lokasi Strategik"):
