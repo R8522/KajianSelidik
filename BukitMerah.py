@@ -2,58 +2,71 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# --- Title ---
+# --- Page Config ---
 st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
-st.title("📚 Analisis Penutupan Perpustakaan Bukit Merah")
+
+# --- Tajuk Besar ---
+st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Bukit Merah</h1>", unsafe_allow_html=True)
 
 # --- Load CSV ---
 data = pd.read_csv('BukitMerah.csv')
 
 # --- Ringkasan ---
-st.subheader("📥 Data Asal")
+st.markdown("### 📥 Data Asal")
 st.write("Jumlah responden:", data.shape[0])
 st.dataframe(data)
 
-st.subheader("📌 Nilai Kosong")
+st.markdown("### 📌 Nilai Kosong")
 st.write(data.isnull().sum())
 
-st.subheader("📊 Statistik Ringkas")
+st.markdown("### 📊 Statistik Ringkas")
 st.write(data.describe())
 
-# --- Visualization ---
-st.header("📈 Visualisasi Data")
+# --- Visualization Header ---
+st.markdown("<h2 style='text-align: center;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
 
+# --- Function: Line Chart ---
 def plot_grouped_line(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(6, 4))  # <<< saiz kecil
+    fig, ax = plt.subplots(figsize=(6, 4))
 
     for col in grouped.columns:
-        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
+        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)
 
-    ax.set_xlabel('Kumpulan Umur', fontsize=5)
-    ax.set_ylabel('Bilangan Responden', fontsize=5)
-    ax.set_title(title, fontsize=5)
-    ax.legend(title=column, fontsize=4, title_fontsize=9, loc='upper left')  # <<< kecilkan legend
+    ax.set_xlabel('Kumpulan Umur', fontsize=6)
+    ax.set_ylabel('Bilangan Responden', fontsize=6)
+    ax.set_title(title, fontsize=7)
+    ax.legend(title=column, fontsize=5, title_fontsize=7, loc='upper left')
     ax.grid(True, linestyle='--', alpha=0.5)
     plt.xticks(rotation=45, fontsize=5)
     plt.yticks(fontsize=5)
     plt.tight_layout()
-    st.pyplot(fig)
 
+    # Center grafik
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.pyplot(fig)
 
+# --- Function: Bar Chart ---
 def plot_grouped_bar(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(7, 4))  # <<< smaller size
+    fig, ax = plt.subplots(figsize=(7, 4))
     grouped.plot(kind='bar', ax=ax, width=0.8)
+
     ax.set_xlabel('Kumpulan Umur')
     ax.set_ylabel('Bilangan Responden')
     ax.set_title(title)
     ax.legend(title=column)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
     plt.xticks(rotation=45, ha='right')
-    st.pyplot(fig)
+    plt.tight_layout()
 
-# --- User Control ---
+    # Center grafik
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.pyplot(fig)
+
+# --- User Controls ---
 if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
 
