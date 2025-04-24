@@ -28,7 +28,7 @@ def plot_grouped_line(column, title):
     fig, ax = plt.subplots(figsize=(6, 4))  # <<< saiz kecil
 
     for col in grouped.columns:
-        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
+        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=2)  # <<< kecilkan marker
 
     ax.set_xlabel('Kumpulan Umur', fontsize=5)
     ax.set_ylabel('Bilangan Responden', fontsize=5)
@@ -50,6 +50,7 @@ def plot_grouped_bar(column, title):
     ax.set_title(title)
     ax.legend(title=column)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.xticks(rotation=45, ha='right')
     st.pyplot(fig)
 
 # --- User Control ---
