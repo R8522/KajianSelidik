@@ -71,7 +71,7 @@ def plot_grouped_bar(column, title):
 if st.checkbox("📍 Penutupan Perpustakaan"):
     plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
     
-    st.subheader("Bilangan responden ikut umur dan jawapan penutupan")
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan jawapan penutupan</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -80,7 +80,7 @@ if st.checkbox("📍 Penutupan Perpustakaan"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon kepada penutupan")
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan jawapan penutupan</div>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -92,8 +92,8 @@ if st.checkbox("📍 Penutupan Perpustakaan"):
 
 if st.checkbox("📍 Lokasi Strategik"):
     plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
-    
-    st.subheader("Bilangan responden ikut umur dan lokasi")
+
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan lokasi</div>", unsafe_allow_html=True)    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -102,7 +102,7 @@ if st.checkbox("📍 Lokasi Strategik"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon lokasi")
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan lokasi</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -114,7 +114,7 @@ if st.checkbox("📍 Lokasi Strategik"):
 if st.checkbox("📍 Keperluan Perpustakaan"):
     plot_grouped_line('Keperluan_perpustakaan', 'Umur vs Keperluan Perpustakaan')
 
-    st.subheader("Bilangan responden ikut umur dan keperluan perpustakaan")
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan keperluan perpustakaan</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -123,7 +123,7 @@ if st.checkbox("📍 Keperluan Perpustakaan"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon keperluan perpustakaan")
+    st.markdown("### <div style='text-align: center;'>Bilangan responden ikut umur dan keperluan perpustakaan</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -135,7 +135,7 @@ if st.checkbox("📍 Keperluan Perpustakaan"):
 if st.checkbox("📍 Kekurangan Pengunjung"):
     plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Kekurangan Pengunjung')
 
-    st.subheader("Bilangan responden ikut umur dan kekurangan pengunjung")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kekurangan pengunjung</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -144,7 +144,7 @@ if st.checkbox("📍 Kekurangan Pengunjung"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon kekurangan pengunjung")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kekurangan pengunjung</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -156,7 +156,7 @@ if st.checkbox("📍 Kekurangan Pengunjung"):
 if st.checkbox("📍 Operasi Perpustakaan"):
     plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')\
 
-    st.subheader("Bilangan responden ikut umur dan pengoperasian")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -165,7 +165,7 @@ if st.checkbox("📍 Operasi Perpustakaan"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon pengoperasian")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -177,7 +177,7 @@ if st.checkbox("📍 Operasi Perpustakaan"):
 if st.checkbox("📍 Histogram Jarak Lokasi"):
     plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak Lokasi')
 
-    st.subheader("Bilangan responden ikut umur dan jarak lokasi")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon jarak lokasi</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
@@ -186,7 +186,7 @@ if st.checkbox("📍 Histogram Jarak Lokasi"):
                 .unstack(fill_value=0)
         )
 
-    st.subheader("Jumlah keseluruhan respon jarak lokasi")
+    st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon jarak lokasi</div>", unsafe_allow_html=True)  
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.dataframe(
