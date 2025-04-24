@@ -50,7 +50,6 @@ def plot_grouped_bar(column, title):
     ax.set_title(title)
     ax.legend(title=column)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.xticks(rotation=45, ha='right')
     st.pyplot(fig)
 
 # --- User Control ---
