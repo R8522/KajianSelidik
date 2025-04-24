@@ -28,7 +28,7 @@ st.markdown("<h2 style='text-align: center;'>📈 Visualisasi Data</h2>", unsafe
 # --- Function: Line Chart ---
 def plot_grouped_line(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(6, 4))  # <<< saiz kecil
+    fig, ax = plt.subplots(figsize=(7, 5))  # <<< saiz kecil
 
     for col in grouped.columns:
         ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
@@ -42,7 +42,6 @@ def plot_grouped_line(column, title):
     plt.yticks(fontsize=9)
     plt.tight_layout()
     st.pyplot(fig)
-
 
     # Center grafik
     col1, col2, col3 = st.columns([1, 2, 1])
