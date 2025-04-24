@@ -51,7 +51,7 @@ def plot_grouped_line(column, title):
 # --- Function: Bar Chart ---
 def plot_grouped_bar(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(7, 4))
+    fig, ax = plt.subplots(figsize=(7, 5))
     grouped.plot(kind='bar', ax=ax, width=0.8)
 
     ax.set_xlabel('Kumpulan Umur')
