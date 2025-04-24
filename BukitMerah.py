@@ -2,12 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-def run():
 # --- Page Config ---
-    st.title(page_title="Analisis Perpustakaan", layout="wide")
-    # --- Tajuk Besar ---
-    st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Bukit Merah</h1>", unsafe_allow_html=True)
+st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
+
+# --- Tajuk Besar ---
+st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Bukit Merah</h1>", unsafe_allow_html=True)
 
 # --- Load CSV ---
     data = pd.read_csv('BukitMerah.csv')
