@@ -113,17 +113,16 @@ if location == "Desa Sempeneh":
     # --- Tajuk Besar ---
     st.markdown("<h1 style='text-align: center;'>📚 Analisis Penutupan Perpustakaan Desa Sempeneh</h1>", unsafe_allow_html=True)
 
-    # --- Load CSV ---
+    # --- Load CSV & Drop Nulls ---
     data = pd.read_csv('Desa sempeneh.csv')
+    data.dropna(inplace=True)  # Hapus baris dengan nilai kosong
 
     # --- Ringkasan Data ---
     st.markdown("### 📥 Data Asal")
-    st.write("Jumlah responden:", data.shape[0])
+    st.write("Jumlah responden selepas buang nilai kosong:", data.shape[0])
     st.dataframe(data)
 
-     data.dropna(inplace=True)
-    
-    st.markdown("### 📌 Nilai Kosong")
+    st.markdown("### 📌 Nilai Kosong (Selepas Buang)")
     st.write(data.isnull().sum())
 
     st.markdown("### 📊 Statistik Ringkas")
