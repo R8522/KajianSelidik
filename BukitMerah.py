@@ -101,7 +101,7 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data['Operasi_perpustakaan'].value_counts().to_frame(name='Jumlah')))
 
     if st.checkboxf("📍 Jarak Lokasi"):
-        plot_grouped_line('Kekurangan_pengunjung', 'Bilangan Responden vs Pengoperasian')
+        plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak lokasi')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Jarak Lokasi</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Jarak_lokasi'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon jarak lokasi</div>", unsafe_allow_html=True)
