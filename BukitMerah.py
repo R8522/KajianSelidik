@@ -28,19 +28,21 @@ st.markdown("<h2 style='text-align: center;'>📈 Visualisasi Data</h2>", unsafe
 # --- Function: Line Chart ---
 def plot_grouped_line(column, title):
     grouped = data.groupby(['Umur', column]).size().unstack(fill_value=0)
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(5, 3))  # <<< saiz kecil
 
     for col in grouped.columns:
-        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)
+        ax.plot(grouped.index, grouped[col], marker='o', label=col, markersize=4)  # <<< kecilkan marker
 
-    ax.set_xlabel('Kumpulan Umur', fontsize=6)
-    ax.set_ylabel('Bilangan Responden', fontsize=6)
-    ax.set_title(title, fontsize=7)
-    ax.legend(title=column, fontsize=5, title_fontsize=7, loc='upper left')
+    ax.set_xlabel('Kumpulan Umur', fontsize=10)
+    ax.set_ylabel('Bilangan Responden', fontsize=10)
+    ax.set_title(title, fontsize=12)
+    ax.legend(title=column, fontsize=8, title_fontsize=9, loc='upper left')  # <<< kecilkan legend
     ax.grid(True, linestyle='--', alpha=0.5)
-    plt.xticks(rotation=45, fontsize=5)
-    plt.yticks(fontsize=5)
+    plt.xticks(rotation=45, fontsize=9)
+    plt.yticks(fontsize=9)
     plt.tight_layout()
+    st.pyplot(fig)
+
 
     # Center grafik
     col1, col2, col3 = st.columns([1, 2, 1])
