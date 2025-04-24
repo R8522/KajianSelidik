@@ -8,7 +8,7 @@ st.title("📚 Analisis Penutupan Perpustakaan Bukit Merah")
 
 # --- load Data ---
 
-    data = pd.read_csv('Bukit Merah.csv')
+    data = pd.read_csv('BukitMerah.csv')
 
     # --- Ringkasan ---
     st.subheader("📥 Data Asal")
