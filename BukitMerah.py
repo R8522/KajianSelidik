@@ -174,6 +174,9 @@ if location == "Desa Sempeneh":
             st.pyplot(fig)
         center_content(draw)
 
+
+    st.markdown(""" Kesimpulannya, perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
+
     # --- Controls ---
     if st.checkbox("📍 Penutupan Perpustakaan"):
         plot_grouped_line('Penutupan_perpustakaan', 'Respon vs Penutupan Perpustakaan')
@@ -224,4 +227,4 @@ if location == "Desa Sempeneh":
 
 
 
-st.markdown(""" Kesimpulannya, perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
+
