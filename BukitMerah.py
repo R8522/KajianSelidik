@@ -71,6 +71,7 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada penutupan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Penutupan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 52% responden memilih untuk tidak perlu menutup perpustakaan di Desa Bukit Merah  """)
 
     if st.checkbox("📍 Lokasi Strategik"):
         plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
@@ -78,6 +79,7 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Lokasi_strategik'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada lokasi</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Lokasi_strategik'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 58% responden mengundi bahawa lokasi perpustakaan bagi Bukit Merah adalah tidak strategik. """)
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
         plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
@@ -85,6 +87,7 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 88% responden mengatakakan bahawa Desa Bukit Merah mempunyai kurang pengujung """)
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
         plot_grouped_line('Keperluan_perpustakaan', 'Bilangan Responden vs Keperluan Perpustakaan')
@@ -92,13 +95,15 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Keperluan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Keperluan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
-   
+        st.markdown(""" Sebanyak 77% responden mengatakakan bahawa keperluan perpustakaan di Desa Sempeneh adalah perlu di desa tersebut. """)
+    
     if st.checkbox("📍 Operasi perpustakaan"):
         plot_grouped_line('Operasi_perpustakaan', 'Bilangan Responden vs Pengoperasian')
         st.markdown("### <div style='text-align: center;'>Bilangan Responden vs Pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Operasi_perpustakaan'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 60% responden mengatakakan bahawa operasi bagi perpustakaan di Desa Bukit Merah adalah perlu diteruskan. """)
     
     if st.checkbox("📍 Jarak Lokasi"):
         plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak lokasi')
@@ -106,6 +111,9 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Jarak_lokasi'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon jarak lokasi</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Jarak_lokasi'].value_counts().to_frame(name='Jumlah')))
+
+
+st.markdown(""" Kesimpulannya, perpustakaan desa bagi Bukit Merah tidak perlu ditutup. Isu utama mungkin adalah disebabkan oleh lokasi yang tidak strategik dan mungkin juga disebabkan oleh keperluan lain. """)
 
 if location == "Desa Sempeneh":
     # --- Tajuk Besar ---
@@ -172,6 +180,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Penutupan_perpustakaan'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada penutupan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Penutupan_perpustakaan'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 83% responden mengatakakan bahawa perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
 
     if st.checkbox("📍 Lokasi Strategik"):
         plot_grouped_line('Lokasi_strategik', 'Umur vs Lokasi Strategik')
@@ -179,6 +188,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Lokasi_strategik'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada lokasi</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Lokasi_strategik'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 67% responden mengatakakan bahawa lokasi di perpustakaan Desa Sempeneh adalah tidak strategik """)
     
     if st.checkbox("📍 Kekurangan Pengunjung"):
         plot_grouped_line('Kekurangan_pengunjung', 'Umur vs  Kekurangan Pengunjung')
@@ -186,6 +196,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Kekurangan_pengunjung'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon kepada kekurangan pengunjung</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Kekurangan_pengunjung'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 58% responden mengatakakan bahawa perpustakaan di Desa Sempeneh mempunyai ramai pengujung """)
     
     if st.checkbox("📍 Keperluan Perpustakaan"):
         plot_grouped_line('Perlu_ada', 'Bilangan Responden vs Keperluan Perpustakaan')
@@ -193,6 +204,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Perlu_ada'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon keperluan perpustakaan</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Perlu_ada'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 70% responden mengatakakan bahawa keperluan perpustakaan di Desa Sempeneh adalah tidak perlu """)
     
     if st.checkbox("📍 Operasi perpustakaan"):
         plot_grouped_line('Operasi', 'Bilangan Responden vs Pengoperasian')
@@ -200,6 +212,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Operasi'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon pengoperasian</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Operasi'].value_counts().to_frame(name='Jumlah')))
+        st.markdown(""" Sebanyak 70% responden mengatakakan bahawa operasi bagi perpustakaan di Desa Sempeneh adalah tidak perlu diteruskan. """)
     
     if st.checkbox("📍 Jarak Lokasi"):
         plot_grouped_bar('Jarak_lokasi', 'Histogram: Bilangan Responden vs Jarak lokasi')
