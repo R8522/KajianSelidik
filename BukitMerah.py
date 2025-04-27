@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Analisis Perpustakaan", layout="wide")
 
 # --- Sidebar Navigation ---
-location = st.sidebar.selectbox("Pilih Lokasi", ["Bukit Merah", "Desa Sempeneh", "Kuala Dipang"])
+location = st.sidebar.selectbox("Pilih Lokasi", ["Bukit Merah", "Desa Sempeneh"])
 
 if location == "Bukit Merah":
     # --- Tajuk Besar ---
