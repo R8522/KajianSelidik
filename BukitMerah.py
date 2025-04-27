@@ -175,7 +175,6 @@ if location == "Desa Sempeneh":
         center_content(draw)
 
 
-    st.markdown(""" Kesimpulannya, perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
 
     # --- Controls ---
     if st.checkbox("📍 Penutupan Perpustakaan"):
@@ -227,4 +226,4 @@ if location == "Desa Sempeneh":
 
 
 
-
+    st.markdown(""" Kesimpulannya, perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
