@@ -113,7 +113,8 @@ if location == "Bukit Merah":
         center_content(lambda: st.dataframe(data['Jarak_lokasi'].value_counts().to_frame(name='Jumlah')))
 
 
-st.markdown(""" Kesimpulannya, perpustakaan desa bagi Bukit Merah tidak perlu ditutup. Isu utama mungkin adalah disebabkan oleh lokasi yang tidak strategik dan mungkin juga disebabkan oleh keperluan lain. """)
+
+st.markdown(""" Kesimpulannya, perpustakaan desa bagi Bukit Merah adalah tidak perlu ditutup. Isu utama mungkin adalah disebabkan oleh lokasi yang tidak strategik dan mungkin juga disebabkan oleh keperluan lain yang tidak mencukupi. """)
 
 if location == "Desa Sempeneh":
     # --- Tajuk Besar ---
@@ -220,3 +221,7 @@ if location == "Desa Sempeneh":
         center_content(lambda: st.dataframe(data.groupby('Umur')['Jarak_lokasi'].value_counts().unstack(fill_value=0)))
         st.markdown("### <div style='text-align: center;'>Jumlah keseluruhan respon jarak lokasi</div>", unsafe_allow_html=True)
         center_content(lambda: st.dataframe(data['Jarak_lokasi'].value_counts().to_frame(name='Jumlah')))
+
+
+
+st.markdown(""" Kesimpulannya, perpustakaan bagi Desa Sempeneh adalah perlu ditutup """)
